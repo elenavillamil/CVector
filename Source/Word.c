@@ -8,7 +8,7 @@
 *                                                                               *
 * EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE */
 
-#include "word.h";
+#include "Word.h"
 
 /* eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee *
 *									 											*
@@ -23,9 +23,17 @@ void wordNew(Word** myWord, char* myString)
 {
 	*myWord = (Word*)malloc(sizeof(Word*));
 	(*myWord)->string = (char*)malloc((strlen(myString) + 1) * sizeof(char));
-	strcpy_s((*myWord)->string, (strlen(myString) + 1) * sizeof(myString), myString);
+	
+   #ifdef _WIN32
 
-	free((*myWord)->string);
+   strcpy_s((*myWord)->string, (strlen(myString) + 1) * sizeof(myString), myString);
+
+   #else
+
+   strcpy((*myWord)->string, myString);
+
+   #endif
+
 }
 
 
