@@ -18,11 +18,13 @@
 *	Parameters: a pointer to a vector											*
 *																				*
 * eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee */
-void vectorNew(Vector* myVector)
+void vectorNew(Vector** myVector)
 {
-	myVector->size = 0;
-	myVector->capacity = increase;
-	myVector->data = (myType*) malloc (sizeof(myType)*increase);
+	*myVector = (Vector*)malloc(sizeof(Vector));
+
+	(*myVector)->size = 0;
+	(*myVector)->capacity = increase;
+	(*myVector)->data = (myType*) malloc (sizeof(myType)*increase);
 }
 
 
@@ -112,5 +114,6 @@ myType vectorGet(Vector* self, int position)
 void vectorDelete(Vector* myVector)
 {
 	free (myVector->data);
+	free(myVector);
 }
 

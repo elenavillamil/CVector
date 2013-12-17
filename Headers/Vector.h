@@ -35,6 +35,6 @@ void vectorResize(Vector*);
 void vectorInsert(Vector*, int, myType);
 myType vectorGet(Vector*, int);
 void vectorDelete(Vector*);
-void vectorNew(Vector*);
+void vectorNew(Vector**);
 
 #endif

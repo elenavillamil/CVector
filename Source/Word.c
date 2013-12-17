@@ -19,10 +19,13 @@
 *	word																		*
 *																				*
 * eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee */
-void wordNew(Word* myWord, char* myString)
+void wordNew(Word** myWord, char* myString)
 {
-	myWord->string = myString;
-	/*strcpy_s(myWord->string, 6 * sizeof(char), myString);*/
+	*myWord = (Word*)malloc(sizeof(Word*));
+	(*myWord)->string = (char*)malloc((strlen(myString) + 1) * sizeof(char));
+	strcpy_s((*myWord)->string, (strlen(myString) + 1) * sizeof(myString), myString);
+
+	free((*myWord)->string);
 }
 
 

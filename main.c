@@ -15,13 +15,13 @@ int main()
 
 	Vector* stopWords = NULL;
 	char* tempStopWord;
-	char* temp;
+	char* tempRead = NULL;
 	Word* tempWord = NULL;
 	
 	
 	/*create vector*/
-	stopWords = (Vector*)malloc(sizeof(Vector));
-	vectorNew(stopWords);
+	//stopWords = (Vector*)malloc(sizeof(Vector));
+	vectorNew(&stopWords);
 
 	/* Open file */
 	/* If running windows */
@@ -44,33 +44,34 @@ int main()
 	}
 	
 	/*
-	while(fgets(tempStopWord, 1000, stopFile) != NULL)
+	while((fgets(tempRead, 60, stopFile)) != EOF)
 	{
-		temp = (char*) malloc(sizeof(tempStopWord));
-		copy tempStopWord into temp
-		tempWord = newWord(temp);
+		printf("%d\n", sizeof(tempRead));
+		tempWord = (Word*)malloc(sizeof(Word));
+		wordNew(tempWord, tempRead);
 		vectorPushBack(stopWords, tempWord);
-		printf("%s\n", tempStopWord);
+		printf("%s\n", tempRead);
 	}
 	*/
-	tempStopWord = (char*)malloc(6 * sizeof(char));
 
-	strcpy_s(tempStopWord, 6 * sizeof(char), "elena");
-	tempWord = (Word*)malloc(sizeof(Word));
-	wordNew(tempWord, tempStopWord);
+	//tempWord = (Word*)malloc(sizeof(Word));
+
+	tempRead = "elena";
+
+	wordNew(&tempWord, tempRead);
 	vectorPushBack(stopWords, tempWord);
 	printf("%s\n", vectorGet(stopWords, 0)->string);
+
 	/*
 	for (i=0; i < stopWords->size; i++)
 	{
 		printf("%s\n", vectorGet(stopWords, i)->string);
 	}
 	*/
-	for (i = 0; i < stopWords->size; i++)
+	for (i = 0; i < stopWords->size; ++i)
 		wordDelete(vectorGet(stopWords, i));
 
 	vectorDelete(stopWords);
-	free (stopWords);
 	fclose(stopFile);
 
 	return 0;

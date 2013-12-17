@@ -13,6 +13,7 @@
 #define WORD
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 typedef struct
@@ -20,7 +21,7 @@ typedef struct
         char* string;
 } Word;
 
-void wordNew(Word*, char*);
+void wordNew(Word**, char*);
 void wordDelete(Word*);
 
 
