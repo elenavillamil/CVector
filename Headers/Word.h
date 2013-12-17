@@ -1,12 +1,14 @@
 /* EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE *
-*																				*
-*	Module Name: Word															*
-*	File type: header															*
-*	Version: 1.0.11.14.2013														*
-*																				*
-*	Description: defines the function and variables of the word object			*
-*	Note: assumes that the char* string will point to char array in the heap	*
-*																				*
+*                                                                               *
+*	Module Name: Word                                                            *
+*	File type: header                                                            *
+*	Version: 1.0.11.14.2013                                                      *
+*                                                                               *
+*	Description: defines the function and variables of the word object           *
+*                                                                               *
+*	Note:                                                                        *
+*     assumes that the char* string will point to a char array in the heap      *
+*                                                                               *
 * EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE */
 
 #ifndef WORD
